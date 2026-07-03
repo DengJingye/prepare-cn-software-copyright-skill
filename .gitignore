@@ -1,0 +1,24 @@
+# Keep the public skill repository free of private application materials.
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.zip
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.DS_Store
+__MACOSX/
+__pycache__/
+*.pyc
+
+# Generated workspaces and drafts
+提交材料/
+草稿/
+素材/
+检查/
+模板/
+

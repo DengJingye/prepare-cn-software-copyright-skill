@@ -1,0 +1,6 @@
+interface:
+  display_name: "中国软著材料撰写"
+  short_description: "生成并检查中国软件著作权申请全套材料"
+  default_prompt: "Use $prepare-cn-software-copyright to draft and check Chinese software copyright application materials for my project."
+policy:
+  allow_implicit_invocation: true
