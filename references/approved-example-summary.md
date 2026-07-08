@@ -16,7 +16,7 @@ The example includes:
 
 - 软件全称: a concise bioinformatics analysis software name
 - 软件简称: a short abbreviation distinct from the full name
-- 版本号: `V1.0`
+- 版本号: `V1.0`; use this as the default version style for new packages.
 - 软件分类: `应用软件`
 - 软件作品说明: original software
 - 开发方式: cooperation development
@@ -62,6 +62,8 @@ This pattern works especially well for command-line omics pipelines and research
 ## Source Package Pattern
 
 The source zip contains a top-level `代码/` folder with authored shell scripts, including controller scripts and step scripts. Avoid keeping `__MACOSX` or `.DS_Store` in future archives even if the approved historical example had platform-generated artifacts.
+
+For newer packages, prefer a cleaner reviewable source repository/package layout with README, examples, tiny synthetic or sanitized test data when feasible, and expected outputs/QC displays. Do not include obsolete backup files, raw data, large results, or soft-copyright working materials in `代码.zip`.
 
 ## GPL Statement Pattern
 

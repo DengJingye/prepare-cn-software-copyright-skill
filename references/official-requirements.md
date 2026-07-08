@@ -17,12 +17,12 @@ Source: official template package and `0-请先阅读本文件！.txt`.
 - Recommended naming pattern: `品牌 + 产品用途与功能 + 软件/系统/平台/插件/中间件`.
 - Names ending in `工具`, `计算`, `系列` should be used cautiously.
 - 软件简称 is an abbreviation of the full name; it must not be identical to the full name. Leave blank if there is no short name.
-- Version should use a standard form such as `V1.0` or `1.0`.
+- Version should use `V1.0` by default for new packages unless the user explicitly provides another version.
 - The presence/case of `V` must stay identical in all materials.
 
 ## Registration Form Fields
 
-- 主要功能 and 技术特点 must be accurate and detailed within the official limit. The template states 主要功能 around 200 Chinese characters and 技术特点 around 100 Chinese characters, while the readme also warns about a 700-byte PM-system-style limit. Prefer concise official-field text unless the actual form accepts longer text.
+- 主要功能 and 技术特点 must be accurate and detailed within the official limit. Current reviewer feedback may require the 主要功能 field to be 500-1300 Chinese characters; obey that range when requested by policy/reviewer or when the current template has room for it. If a specific official form enforces a shorter byte/character limit, compress only after preserving a complete draft.
 - 开发目的: about 50 Chinese characters.
 - 面向领域/行业: about 50 Chinese characters.
 - Hardware/software environment fields: about 50 characters each.
@@ -37,6 +37,8 @@ Source: official template package and `0-请先阅读本文件！.txt`.
 - The final page should be an ending page of a program.
 - Page header: left software name, center version, right page number.
 - Also upload the source-code zip archive for checking.
+- Do not add numeric line numbers to the source listing unless the template explicitly requires them.
+- Remove unnecessary blank source lines from the submitted listing while preserving code order and meaning.
 
 ## Manual Or Design Specification
 
@@ -49,6 +51,7 @@ Source: official template package and `0-请先阅读本文件！.txt`.
 - User manuals should include relevant UI screenshots, login interface if applicable, operation screenshots, and text explanation.
 - Design specifications should include software structure diagrams, functional flowcharts, logic diagrams, overall design, interface design, module/function descriptions, algorithms, data structures/data dictionary, and running design.
 - Screenshots/figures must be clear.
+- Figure captions/titles should appear above figures when producing new manuals/specifications, unless the user's fixed template requires another position.
 
 ## GPL Declaration
 
@@ -79,4 +82,3 @@ Before delivery, check every file for:
 - no template placeholders such as `[XXXX]` or `_____`;
 - no private credentials, internal paths that should not be disclosed, raw data, or large generated outputs;
 - no `.DS_Store`, `__MACOSX`, `.git`, cache folders, virtual environments, or binary/raw data in `代码.zip`.
-

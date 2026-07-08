@@ -25,6 +25,8 @@ A normal single-software package should end with these files in `提交材料/` 
 
 Do not submit Markdown replacements for these Office files.
 
+The final downloadable application package should normally contain only the finished `提交材料/` file set. Keep helper notes, draft Markdown, auxiliary QC folders, source-generation scripts, and working screenshots outside the final zip unless the user explicitly asks to include auxiliary materials.
+
 ## Safe Editing Rules
 
 - For `.xlsx`, use an existing workbook and update cell values only. Preserve merged cells, dimensions, borders, alignment, fonts, sheets, and print settings.
@@ -45,9 +47,14 @@ Follow that figure skill's backend gate. If it requires a Python/R selection and
 Recommended minimum figure set:
 
 - `图 1 系统总体结构图`
-- `图 2 运行流程图`
-- `图 3 终端运行输出`
-- result figure/table preview when applicable
+- `图 2 软件仓库结构与模块职责图`
+- `图 3 软件运行流程图`
+- `图 4 终端运行输出示意图`
+- project-specific result/QC/validation figure or table preview when applicable
+
+Place every figure caption/title above the image. Keep numbering consistent in the body text and figure captions.
+
+For repository-structure figures, prefer a clean tree/schematic with Chinese module annotations over a VSCode/editor screenshot. A Markdown tree can be supplied for manual screenshot when the user asks for editable/screenshot-ready text.
 
 ## Terminal Screenshot Rule
 
@@ -71,3 +78,4 @@ Before final delivery:
 - check names, versions, dates, legal entity, programming language, and source line count are consistent;
 - check the manual has inserted image relationships in `word/_rels/document.xml.rels`;
 - check `代码.zip` does not contain `__MACOSX`, `.DS_Store`, `.git`, caches, virtual environments, raw data, or large generated outputs.
+- check `源程序.docx` has no numeric line numbers and avoids unnecessary blank code lines.

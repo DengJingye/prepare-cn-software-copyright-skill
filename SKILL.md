@@ -7,16 +7,17 @@ description: Prepare Chinese software copyright application materials for biolog
 
 ## Overview
 
-Use this skill to turn a software project into a complete Chinese software copyright application package. Preserve consistency across all documents: software full name, short name, version, applicant/legal entity, development mode, completion date, programming language, source line count, and technical description.
+Use this skill to turn a software project into a complete Chinese software copyright application package plus a clean reviewable source repository. Preserve consistency across all documents: software full name, short name, version, applicant/legal entity, development mode, completion date, programming language, source line count, and technical description. Default the software version to `V1.0` unless the user explicitly provides another value.
 
 ## First Pass
 
 1. Inspect the target project or existing application folder.
-2. Read `references/official-requirements.md` before drafting or checking official-format materials.
-3. Read `references/format-preservation.md` before creating or editing `.docx` or `.xlsx` deliverables. This is mandatory.
-4. Read `references/material-workflow.md` when creating a new package from scratch.
-5. Read `references/approved-example-summary.md` when matching the style of the approved real example.
-6. Use `scripts/create_ruanzhu_project.py` to scaffold a new material folder when the user asks to start a new application package.
+2. Identify or create the final clean source repository before drafting materials: it should have coherent code, README, runnable examples, tiny test/demo data when feasible, expected outputs or result display, and no raw/private data.
+3. Read `references/official-requirements.md` before drafting or checking official-format materials.
+4. Read `references/format-preservation.md` before creating or editing `.docx` or `.xlsx` deliverables. This is mandatory.
+5. Read `references/material-workflow.md` when creating a new package from scratch.
+6. Read `references/approved-example-summary.md` when matching the style of the approved real example.
+7. Use `scripts/create_ruanzhu_project.py` to scaffold a new material folder when the user asks to start a new application package.
 
 ## Non-Negotiable Format Rule
 
@@ -35,10 +36,12 @@ Prepare or check these files unless the user narrows the scope:
 
 - `软件著作权登记审批表` or `软件著作权信息收集表`: structured metadata and short official descriptions.
 - `GPL声明.docx` or draft text: legal-entity declaration; use法人单位落款.
-- `源程序.docx`: front 30 pages and back 30 pages of source, or all source if under 60 pages; every page should contain at least 50 source lines except unavoidable ending page constraints.
-- `代码.zip`: source-code archive for upload/checking; exclude generated caches and platform junk such as `__MACOSX`, `.DS_Store`, `.git`, large outputs, raw data, and virtual environments.
-- `软件使用手册or设计说明书.docx`: choose design specification for backend, pipeline, CLI, algorithm, or research software; choose user manual for GUI/product workflow software. This file must contain clear figures/screenshots, not text alone.
+- `源程序.docx`: front 30 pages and back 30 pages of source, or all source if under 60 pages; every page should contain at least 50 source lines except unavoidable ending page constraints. Do not add numeric line numbers. Remove unnecessary blank lines so the listing is clean and easy to edit.
+- `代码.zip`: source-code archive for upload/checking; package the same clean repository/source set used for review. Exclude generated caches and platform junk such as `__MACOSX`, `.DS_Store`, `.git`, large outputs, raw data, virtual environments, and intermediate working materials.
+- `软件使用手册or设计说明书.docx`: choose design specification for backend, pipeline, CLI, algorithm, or research software; choose user manual for GUI/product workflow software. This file must contain clear figures/screenshots, not text alone. Captions/figure titles should appear above each figure.
 - `项目合作开发合同`: only when multiple legal entities jointly apply.
+
+The final output for the user should be only one clean source-code repository path suitable for GitHub/public or internal review, plus one final downloadable application-material zip containing only `提交材料/` deliverables unless the user explicitly requests auxiliary materials. Do not present draft folders, helper notes, auxiliary QC folders, or intermediate documents as final deliverables.
 
 ## Information To Collect
 
@@ -51,7 +54,8 @@ Collect these before drafting, inferring from code where possible and asking onl
 - 开发硬件环境, 运行硬件环境, 开发操作系统, 开发工具, 运行平台, 支撑环境.
 - 编程语言 and total source line count.
 - 开发目的 within about 50 Chinese characters, 面向领域/行业 within about 50 Chinese characters.
-- 主要功能 and 技术特点 with the official field length limits in mind.
+- 主要功能: 500-1300 Chinese characters when the current application policy or reviewer requires this range; otherwise obey the user-provided form limit.
+- 技术特点 with the official field length limits in mind.
 
 ## Writing Style
 
@@ -59,15 +63,18 @@ Collect these before drafting, inferring from code where possible and asking onl
 - Emphasize concrete software behavior, not research background alone.
 - For bioinformatics software, describe input data, preprocessing, algorithm/core method, QC/checks, output files, downstream compatibility, and reproducibility.
 - Keep all document names and version strings byte-for-byte consistent.
+- Use `V1.0` consistently by default. Do not write `v0.1.0`, `0.1.0`, or other development versions in official materials unless the user explicitly requires them.
 - Avoid claiming novelty beyond the code; describe technical features as implementation characteristics.
 - Do not include secrets, raw omics data, credentials, patient data, internal server paths, or private database contents.
 
 ## Document Strategy
 
-- Prefer `设计说明书` for scripts, pipelines, command-line tools, algorithms, and backend services. Include architecture, modules, processing flow, data structures, interface/command design, error handling, and running environment.
+- Prefer `设计说明书` for scripts, pipelines, command-line tools, algorithms, and backend services. Include architecture, modules, processing flow, repository/module responsibilities, data structures, interface/command design, error handling, and running environment.
 - Prefer `使用手册` only when there are user-facing screens or a clear operation workflow. Include screenshots when available.
 - For design specifications, generate or insert actual diagrams whenever possible. If a Nature-style figure skill is available locally, use it for system architecture diagrams, workflow diagrams, result visualizations, and other polished manual figures. Follow that figure skill's backend gate exactly.
-- Include a terminal running screenshot. Prefer a clean ASCII-only command/output from a helper script or test/demo run placed in a non-Chinese path, so the screenshot does not expose Chinese paths or noisy shell wrappers.
+- Include, at minimum, these figure assets or screenshot-ready snippets: system overall architecture, software repository structure and module responsibilities, software running workflow, terminal run output, and project-specific result/QC figures when meaningful.
+- For `软件仓库结构与模块职责图`, it is acceptable to provide a clean Markdown tree with Chinese annotations for the user to screenshot when that is clearer than a rendered figure.
+- Include a terminal running screenshot. Prefer a clean ASCII-only command/output from a direct software command, helper script, or test/demo run placed in a non-Chinese path, so the screenshot does not expose Chinese paths or noisy shell wrappers.
 - Use the approved example's structure for scientific pipelines: 引言, 系统架构与流程, 核心模块详细设计, 环境准备与安装, 输入与输出文件, 快速使用指南, 常见问题.
 
 ## Assets
